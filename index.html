@@ -1,1 +1,50 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>DevPad</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+</head>
+
+<body>
+	<a download id="download"></a>
+	<header>
+		<h1>DevPad</h1>
+	</header>
+	<table width="100%" border="0" cellspacing="5" cellpadding="5">
+		<tr>
+			<td width="50%" scope="col">&nbsp;</td>
+			<td width="50%" align="left" scope="col"></td>
+		</tr>
+		<tr>
+			<td>
+				<form>
+					<strong>HTML</strong>
+					<div style="position: relative;">
+						<textarea placeholder="Enter HTML Source Code" id="htmlSource" spellcheck="false" oninput="update(this.value); sync_scroll(this);" onscroll="sync_scroll(this);" onkeydown="check_tab(this, event);"></textarea>
+						<pre id="highlighting" aria-hidden="true">
+							<code class="language-html" id="highlighting-content" style="overflow: hidden;"></code>
+						</pre>
+					</div>
+					<strong>CSS</strong>
+					<textarea name="cssSource" id="cssSource" onkeydown="check_tab(this, event);"></textarea>
+					<strong>JS</strong>
+					<textarea name="jsSource" id="jsSource" onkeydown="check_tab(this, event);"></textarea>
+				</form>
+			</td>
+			<td>
+				<strong>Output</strong>
+				<iframe name="targetCode" id="targetCode" style="background-color: #fff;"></iframe>
+			</td>
+		</tr>
+	</table>
+	<center>
+		<button onclick="runCode();">Run Code</button>
+		<button onclick="clearCode();">Clear Code</button>
+	</center>
+	<script type="text/javascript" src="main.js"></script>
+</body>
+
+</html>
